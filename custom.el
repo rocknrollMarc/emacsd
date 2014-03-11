@@ -61,4 +61,14 @@ inversion of gas-comment-region"
       (if (equal (char-after) ?#)
           (delete-char 1))
       (next-line))
-    (goto-char end)))
+
+(goto-char end)))
+
+(add-to-list 'load-path "~/emacs.d/plugins/simple-rtm/lisp")
+(autoload 'simple-rtm-mode "simple-rtm" "Interactive mode for Remember The Milk" t)
+
+(simple-rtm-mode)
+
+(eval-after-load 'simple-rtm
+  '(progn
+     (display-simple-rtm-tasks-mode t)))
